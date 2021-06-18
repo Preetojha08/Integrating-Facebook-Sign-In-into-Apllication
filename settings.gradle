@@ -1,0 +1,2 @@
+rootProject.name = "Facebook SignUp"
+include ':app'
