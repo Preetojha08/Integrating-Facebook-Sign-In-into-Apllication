@@ -2,6 +2,7 @@ package com.creatures.facebooksignup;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     CallbackManager callbackManager;
     TextView fb_tv_username,fb_tv_user_id,fb_tv_email_id;
     LinearLayout linearLayout_info;
-    ImageView fb_imageView_profile;
+    CircleImageView fb_imageView_profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +55,7 @@ public class MainActivity extends AppCompatActivity {
         fb_tv_email_id=(TextView)findViewById(R.id.fb_text_view_email_id);
         linearLayout_info=(LinearLayout)findViewById(R.id.linear_layout_info);
 
-        linearLayout_info.setVisibility(View.GONE);
-
-        fb_imageView_profile=(ImageView)findViewById(R.id.fb_image_view_profile);
+        fb_imageView_profile=(CircleImageView)findViewById(R.id.fb_image_view_profile);
 
         callbackManager = CallbackManager.Factory.create();
 
@@ -99,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
             if (currentAccessToken == null)
             {
                 Toast.makeText(MainActivity.this, "User Logout", Toast.LENGTH_SHORT).show();
+                linearLayout_info.setVisibility(View.GONE);
             }
             else
             {
